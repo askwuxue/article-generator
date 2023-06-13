@@ -1,15 +1,13 @@
-// import { context } from './index.js';
 import { createRandomPick, randomInt } from './random.js';
 
 // 生成文章
 export const generate = ({
-  context,
+  context: corpus,
   articleMin = 2000,
   articleMax = 10000,
   sectionMin = 200,
   sectionMax = 500,
 } = {}) => {
-  const corpus = JSON.parse(context);
   const { title, famous, bosh_before, bosh, said, conclude } = corpus;
   const [ PickTitle, pickFamous, pickBoshBefore, pickBosh, pickSaid, pickConclude ] = [title, famous, bosh_before, bosh, said, conclude].map((item) => {
     return createRandomPick(item);
