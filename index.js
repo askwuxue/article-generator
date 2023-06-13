@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import { generate } from './generate.js';
-import { createRandomPick } from './random.js';
+import { generate } from './libs/generate.js';
+import { createRandomPick } from './libs/random.js';
 import { parseOptions } from './cmd/index.js';
 import { saveArticle, loadFile } from './corpus/index.js';
 import { interact } from './cmd/interact.js';
