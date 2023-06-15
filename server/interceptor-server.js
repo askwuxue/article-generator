@@ -2,9 +2,9 @@ import { createServer } from 'http';
 
 import Interceptor from './interceptor/index.js';
 
-import Router from './middleware/routes.js'
+// import Router from './middleware/routes.js'
 
-class Server {
+export default class Server {
   constructor() {
     const interceptor = new Interceptor();
 
@@ -48,31 +48,31 @@ class Server {
 
 }
 
-const app = new Server();
+// const app = new Server();
 
-app.listen({
-  port: 3000,
-  host: '127.0.0.1',
-});
+// app.listen({
+//   port: 3000,
+//   host: '127.0.0.1',
+// });
 
 // 添加拦截切面
-app.use(async ({res}, next) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.body = '<h1>Hello world</h1>';
-  await next();
-});
+// app.use(async ({res}, next) => {
+//   res.setHeader('Content-Type', 'text/html');
+//   res.body = '<h1>Hello world</h1>';
+//   await next();
+// });
 
 
-const router = new Router();
+// const router = new Router();
 
-app.use(router.all('/test/:course/:lecture', async ({route, res}, next) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.body = route;
-  await next();
-}));
+// app.use(router.all('/test/:course/:lecture', async ({route, res}, next) => {
+//   res.setHeader('Content-Type', 'application/json');
+//   res.body = route;
+//   await next();
+// }));
 
-app.use(router.all('.*', async ({req, res}, next) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.body = '<h1>404 Not Fount</h1>';
-  await next();
-}));
+// app.use(router.all('.*', async ({req, res}, next) => {
+//   res.setHeader('Content-Type', 'text/html');
+//   res.body = '<h1>404 Not Fount</h1>';
+//   await next();
+// }));
