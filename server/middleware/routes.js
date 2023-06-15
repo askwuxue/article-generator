@@ -1,7 +1,5 @@
 // Router类
 
-// const url = require('url');
-// const path = require('path');
 import url from 'url';
 import path from 'path';
 

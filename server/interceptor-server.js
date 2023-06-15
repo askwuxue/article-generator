@@ -48,14 +48,10 @@ class Server {
 
 }
 
-// const Server = require('./lib/server');
-// const Server = require('./lib/server');
-
 const app = new Server();
 
 app.listen({
   port: 3000,
-  // host: '0.0.0.0',
   host: '127.0.0.1',
 });
 
@@ -65,7 +61,6 @@ app.use(async ({res}, next) => {
   res.body = '<h1>Hello world</h1>';
   await next();
 });
-
 
 
 const router = new Router();
@@ -78,6 +73,6 @@ app.use(router.all('/test/:course/:lecture', async ({route, res}, next) => {
 
 app.use(router.all('.*', async ({req, res}, next) => {
   res.setHeader('Content-Type', 'text/html');
-  res.body = '<h1>Not </h1>';
+  res.body = '<h1>404 Not Fount</h1>';
   await next();
 }));
